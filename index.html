@@ -31,7 +31,23 @@
     let cooldown = 2000; // 2 detik cooldown
     let lastTime = 0;
 
+if (qrCodeMessage) {
+    let now = Date.now();
 
+    // Cek agar tidak double scan
+    if (qrCodeMessage !== lastData || now - lastScanTime > cooldown) {
+
+        lastData = qrCodeMessage;
+        lastScanTime = now;
+
+        console.log("QR terbaca:", qrCodeMessage);
+
+        sendToSheet(qrCodeMessage);
+
+        // optional: bunyi beep
+        beep();
+    }
+}
 
     function onScanSuccess(decodedText) {
         console.log("QR:", decodedText);
@@ -54,4 +70,5 @@
 
 
 </html>
+
 
