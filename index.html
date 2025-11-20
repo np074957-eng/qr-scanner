@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>QR Scanner</title>
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <script src="https://unpkg.com/html5-qrcode"></script>
   
@@ -59,13 +59,13 @@ header {
 
 h1 {
     color: #007bff;
-    font-size: 1.9em;
+     font-size: 1.4em;
     margin: 5px 0;
 }
 
 h2 {
     color: #555;
-    font-size: 1.0em;
+  font-size: 0.9em;
     margin: 0 0 15px;
 }
 
@@ -77,11 +77,11 @@ h2 {
 
 #reader {
     width: 100%;
-    max-width: 400px;
+    max-width: 100%;
     margin: 15px auto 20px;
     border: 3px dashed #007bff;
     border-radius: 10px;
-    min-height: 250px;
+    min-height: 220px;
     overflow: hidden;
     animation: glow 2s infinite ease-in-out;
 }
@@ -179,6 +179,13 @@ footer:hover {
     100% { box-shadow: 0 0 12px rgba(0,123,255,0.2); }
 }
 
+    @media (max-width: 480px) {
+    .container {
+        padding: 15px;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 10px;
+    }
   </style>
 </head>
 
@@ -272,7 +279,7 @@ function onScanSuccess(decodedText) {
 const html5QrCode = new Html5Qrcode("reader");
 html5QrCode.start(
   { facingMode: "environment" },
-  { fps: 20, qrbox: 250 },
+{ fps: 20, qrbox: { width: 220, height: 220 } },
   onScanSuccess
 );
 </script>
@@ -280,5 +287,6 @@ html5QrCode.start(
 
 
 </html>
+
 
 
