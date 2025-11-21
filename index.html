@@ -249,7 +249,7 @@ function onScanSuccess(decodedText) {
 
     const resultBox = document.getElementById("scan-result");
 
-    if (jam > 8 || (jam === 8 && menit > 0)) {
+    if (jam > 11 || (jam === 11 && menit > 0)) {
 
         // 🔊 SUARA TELAT (TAMBAHKAN DI SINI)
         const lateSound = new Audio("late.mp3");
@@ -287,6 +287,7 @@ html5QrCode.start(
 
 
 </html>
+
 
 
 
